@@ -41,7 +41,7 @@ public class CustomerReceiver {
         log.info("Receiving customer login message 2: [{}]", message);
         channel.basicAck(tag, false);
 
-        Thread.sleep(20000);
+        Thread.sleep(30000);
         log.info("Done processing message 2");
     }
 }

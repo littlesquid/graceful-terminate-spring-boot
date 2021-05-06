@@ -1,15 +1,14 @@
 package com.samuraiiway.gracefulterminate.config;
 
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
+import org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 
 public class MyRabbitListenerContainerFactory extends SimpleRabbitListenerContainerFactory {
 
-    private final long shutdownTimeout;
+    private long shutdownTimeout = AbstractMessageListenerContainer.DEFAULT_SHUTDOWN_TIMEOUT;
 
-    public MyRabbitListenerContainerFactory(long shutdownTimeout) {
-        super();
-        this.shutdownTimeout = shutdownTimeout;
+    public MyRabbitListenerContainerFactory() {
     }
 
     public SimpleMessageListenerContainer createContainerInstance() {
@@ -18,4 +17,7 @@ public class MyRabbitListenerContainerFactory extends SimpleRabbitListenerContai
         return container;
     }
 
+    public void setShutdownTimeout(long shutdownTimeout) {
+        this.shutdownTimeout = shutdownTimeout;
+    }
 }

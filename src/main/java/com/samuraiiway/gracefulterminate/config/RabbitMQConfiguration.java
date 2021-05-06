@@ -17,7 +17,7 @@ public class RabbitMQConfiguration {
         factory.setConnectionFactory(connectionFactory);
         factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
         factory.setConcurrentConsumers(2);
-        factory.setMaxConcurrentConsumers(3);
+        factory.setMaxConcurrentConsumers(10);
         factory.setMessageConverter(messageConverter());
         factory.setMissingQueuesFatal(false);
         return factory;
@@ -25,11 +25,12 @@ public class RabbitMQConfiguration {
 
     @Bean
     public SimpleRabbitListenerContainerFactory myRabbitListenerContainerFactory(ConnectionFactory connectionFactory) {
-        SimpleRabbitListenerContainerFactory factory = new MyRabbitListenerContainerFactory(30000);
+        MyRabbitListenerContainerFactory factory = new MyRabbitListenerContainerFactory();
+//        factory.setShutdownTimeout(30000);
         factory.setConnectionFactory(connectionFactory);
         factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
         factory.setConcurrentConsumers(2);
-        factory.setMaxConcurrentConsumers(3);
+        factory.setMaxConcurrentConsumers(10);
         factory.setMessageConverter(messageConverter());
         factory.setMissingQueuesFatal(false);
         return factory;
