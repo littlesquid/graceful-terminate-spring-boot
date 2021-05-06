@@ -24,7 +24,7 @@ public class ShutdownConfiguration {
                 .getListenerContainers()
                 .forEach(container -> {
                     SimpleMessageListenerContainer simpleContainer = (SimpleMessageListenerContainer) container;
-                    simpleContainer.setShutdownTimeout(30000);
+//                    simpleContainer.setShutdownTimeout(30000);
                 });
 
         log.info("Completed handle context refresh event");
