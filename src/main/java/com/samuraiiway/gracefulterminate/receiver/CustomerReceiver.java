@@ -22,7 +22,7 @@ public class CustomerReceiver {
         log.info("Receiving customer login message: [{}]", message);
         channel.basicAck(tag, false);
 
-        Thread.sleep(30000);
+        Thread.sleep(20000);
         log.info("Done processing message");
     }
 }

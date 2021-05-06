@@ -16,11 +16,10 @@ public class RabbitMQConfiguration {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
         factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
-        factory.setConcurrentConsumers(1);
-        factory.setMaxConcurrentConsumers(1);
+        factory.setConcurrentConsumers(2);
+        factory.setMaxConcurrentConsumers(2);
         factory.setMessageConverter(messageConverter());
         factory.setMissingQueuesFatal(false);
-
         return factory;
     }
 
