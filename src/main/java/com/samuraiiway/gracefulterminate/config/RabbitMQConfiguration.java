@@ -12,21 +12,9 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfiguration {
 
     @Bean
-    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory) {
-        SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
-        factory.setConnectionFactory(connectionFactory);
-        factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
-        factory.setConcurrentConsumers(2);
-        factory.setMaxConcurrentConsumers(10);
-        factory.setMessageConverter(messageConverter());
-        factory.setMissingQueuesFatal(false);
-        return factory;
-    }
-
-    @Bean
     public SimpleRabbitListenerContainerFactory myRabbitListenerContainerFactory(ConnectionFactory connectionFactory) {
         MyRabbitListenerContainerFactory factory = new MyRabbitListenerContainerFactory();
-//        factory.setShutdownTimeout(30000);
+        factory.setShutdownTimeout(30000);
         factory.setConnectionFactory(connectionFactory);
         factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
         factory.setConcurrentConsumers(2);

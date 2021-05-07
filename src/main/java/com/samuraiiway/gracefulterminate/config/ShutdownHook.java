@@ -13,7 +13,6 @@ public class ShutdownHook {
     public void destroy() {
         try {
             log.info("Started destroying");
-            Thread.sleep(200);
             log.info("Completed destroying");
         } catch (Exception ex) {}
     }

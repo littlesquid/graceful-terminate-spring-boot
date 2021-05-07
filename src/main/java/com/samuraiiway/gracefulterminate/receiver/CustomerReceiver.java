@@ -27,21 +27,7 @@ public class CustomerReceiver {
         log.info("Receiving customer login message: [{}]", message);
         channel.basicAck(tag, false);
 
-        Thread.sleep(20000);
-        log.info("Done processing message");
-    }
-
-    @RabbitListener(queues = "customer.login", containerFactory = "rabbitListenerContainerFactory")
-    public void customerLoginReceiveMessage2(
-            CustomerLoginMessage message,
-            Channel channel,
-            @Header(AmqpHeaders.DELIVERY_TAG) long tag
-    ) throws Exception {
-
-        log.info("Receiving customer login message 2: [{}]", message);
-        channel.basicAck(tag, false);
-
         Thread.sleep(30000);
-        log.info("Done processing message 2");
+        log.info("Done processing message");
     }
 }

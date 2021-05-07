@@ -12,7 +12,7 @@ public class MyRabbitListenerContainerFactory extends SimpleRabbitListenerContai
     }
 
     public SimpleMessageListenerContainer createContainerInstance() {
-        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
+        MyMessageListenerContainer container = new MyMessageListenerContainer();
         container.setShutdownTimeout(shutdownTimeout);
         return container;
     }
